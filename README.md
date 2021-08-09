@@ -29,58 +29,71 @@ o cualquier software para probar las rutas de la API. Ver en elproyecto la sigui
                                 
         . La dirección del endpoint para hacer login y obtener el token es : localhost:8080/oauth/token
         . Copiar el token que sale en el resultado (sale indicado en los resultados que da postman)
-        . localhost:8080/api/gustos y localhost:8080/api/gustos/page/0 no se necesita autentificarse 
+        . localhost:8080/api/tipos y localhost:8080/api/tipos/page/0 no se necesita autentificarse 
         . si una ruta pide autorizacion agregar en la opcion Authorization poner type Bearer Token y en token pegar el token que se obtuvo en : localhost:8080/oauth/token
+        -Se puede probar con esa ruta el crud.
+        - Para hacer las pruebas las rutas son:
+         -POST :localhost:8080/api/tipos
+         -PUT: localhost:8080/api/tipos/id
+         -DELETE: localhost:8080/api/tipos/id
+         -GET: localhost:8080/api/tipos
+         - Donde id es el id del tipo de musica (revisar el resultado de get)
+         - En POST se crea automaticamente el id
         
  _Ejemplo de obtener datos del API REST_
  
- 1 Get a localhost:8080/api/gustos  resultados:
+ 1 Get a localhost:8080/api/tipos resultados:
  
-     [
-    {
-        "usuario": {
-            "id": 1,
-            "username": "patricio",
-            "password": "$2a$10$Pg75KKTEtfrkAG8QczRa5e198RwKzWlG9uQaGY4LHPDKPr.2X8IAK",
-            "enabled": true,
-            "nombre": "Patricio",
-            "apellido": "Contreras",
-            "roles": [
-                {
-                    "id": 1,
-                    "nombre": "ROLE_USER"
-                }
-            ]
-        },
-        "tipoMusica": {
-            "id": 2,
-            "nombre": "Pop"
-        },
-        "email": "patorma@yahoo.com"
-    },
-    {
-        "usuario": {
-            "id": 1,
-            "username": "patricio",
-            "password": "$2a$10$Pg75KKTEtfrkAG8QczRa5e198RwKzWlG9uQaGY4LHPDKPr.2X8IAK",
-            "enabled": true,
-            "nombre": "Patricio",
-            "apellido": "Contreras",
-            "roles": [
-                {
-                    "id": 1,
-                    "nombre": "ROLE_USER"
-                }
-            ]
-        },
-        "tipoMusica": {
-            "id": 4,
-            "nombre": "Visual Kei"
-        },
-        "email": "mevoya@hotmail.com"
-    }
-]
 
+{
+    "content": [
+        {
+            "id": 1,
+            "nombre": "poprock",
+            "email": "patorma@yahoo.com"
+        },
+        {
+            "id": 2,
+            "nombre": "Pop",
+            "email": "mevoya@hotmail.com"
+        },
+        {
+            "id": 3,
+            "nombre": "Rock",
+            "email": "foca@gmail.com"
+        },
+        {
+            "id": 6,
+            "nombre": "rock",
+            "email": "pocontreras@ing.ucsc.cl"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 4,
+        "unpaged": false,
+        "paged": true
+    },
+    "last": false,
+    "totalElements": 18,
+    "totalPages": 5,
+    "size": 4,
+    "number": 0,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "first": true,
+    "numberOfElements": 4,
+    "empty": false
+}
 2. Post (para autentificarse) localhost:8080/oauth/token resultado: 
 
 {
@@ -94,6 +107,27 @@ o cualquier software para probar las rutas de la API. Ver en elproyecto la sigui
     "nombre": "John",
     "jti": "2cffa9b6-6edb-48ce-9d6f-29daddea3ef2"
 }
+
+3. Post para ingresar el email con el tipo de musica localhost:8080/api/tipos:
+
+    {
+     
+        "nombre": "Jpop",
+        "email": "can@mevoya.com"
+    }
+    
+El resultado es: 
+
+{
+    "tipo de musica": {
+        "id": 25,
+        "nombre": "Jpop",
+        "email": "can@mevoya.com"
+    },
+    "mensaje": "El tipo de musica ha sido creado con éxito! "
+}
+
+Los usuarios de prueba a ingresar son: admin (administrador) y patricio (usuario normal) y la contraseña de ambos 12345
  
  ## Construido con 🛠️
  _Herramientas utilizadas_
