@@ -38,13 +38,13 @@ public class TipoMusicaController {
 	@Autowired
 	private ITipoMusicaService tipoMusicaService;
 	
-	@Secured({"ROLE_ADMIN","ROLE_USER"})
+
 	@GetMapping("/tipos")
 	public List<TipoMusica> index(){
 		return tipoMusicaService.findAll();
 	}
 	
-	@Secured({"ROLE_ADMIN","ROLE_USER"})
+
 	@GetMapping("/tipos/page/{page}")
 	public Page<TipoMusica> index(@PathVariable Integer page){
 		Pageable pageable = PageRequest.of(page, 4);
@@ -74,7 +74,7 @@ public class TipoMusicaController {
 		return new ResponseEntity<TipoMusica>(tipoMusica,HttpStatus.OK); 
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@PostMapping("/tipos")
 	public ResponseEntity<?> create(@Valid @RequestBody TipoMusica tipoMusica ,BindingResult result){
 		
@@ -144,6 +144,7 @@ public class TipoMusicaController {
 		
 		try {
 			tipoMusicaActual.setNombre(tipoMusica.getNombre());
+			tipoMusicaActual.setEmail(tipoMusica.getEmail());
 			
 			tipoMusicaUpdated = tipoMusicaService.save(tipoMusicaActual);
 		}catch(DataAccessException e) {

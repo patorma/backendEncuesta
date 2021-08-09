@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import com.patriciocontreras.encuesta.models.dao.IUsuarioDao;
-import com.patriciocontreras.encuesta.models.entity.GustoMusical;
+
 import com.patriciocontreras.encuesta.models.entity.Usuario;
 
 @Service

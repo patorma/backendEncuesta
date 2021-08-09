@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.patriciocontreras.encuesta.models.entity.GustoMusical;
+
 import com.patriciocontreras.encuesta.models.entity.Usuario;
 
 public interface IUsuarioService {

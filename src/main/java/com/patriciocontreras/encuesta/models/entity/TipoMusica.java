@@ -36,8 +36,12 @@ public class TipoMusica implements Serializable {
 	
 	@Size(min=3, max=90)
 	@NotEmpty 
-	@Column(nullable = false,unique=true) 
+	@Column(nullable = false) 
 	private String nombre;
+	
+	@Column(unique=true,nullable = false)
+	@NotEmpty 
+	private String email;
 	
 	/*@OneToMany(fetch = FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer","hadler"})

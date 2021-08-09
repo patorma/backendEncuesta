@@ -3,7 +3,7 @@ package com.patriciocontreras.encuesta.models.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.patriciocontreras.encuesta.models.entity.GustoMusical;
+
 import com.patriciocontreras.encuesta.models.entity.Usuario;
 
 public interface IUsuarioDao extends JpaRepository<Usuario, Long> {
